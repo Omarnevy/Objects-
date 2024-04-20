@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Top Three Favorite Movies</title>
+</head>
+
+<body>
+    <h1>My Top Three Favorite Movies</h1>
+    <ol id="movie-list"></ol>
+
+    <script>
+        const movies = [
+            {
+                name: "Transformers: Revenge of the Fallen",
+                year: 2009,
+                director: "Michael Bay",
+                picture: "https://m.media-amazon.com/images/I/71xxhBGKSkL._AC_SY679_.jpg"
+            },
+            {
+                name: "Wreck-It Ralph",
+                year: 2012,
+                director: "Rich Moore",
+                picture: "https://m.media-amazon.com/images/I/81Gxhu6s0-L._AC_SL1500_.jpg"
+            },
+            {
+                name: "Avengers: Infinity War",
+                year: 2018,
+                director: "Anthony and Joe Russo",
+                picture: "https://m.media-amazon.com/images/I/61tKKb7rFSL._AC_SY679_.jpg"
+            }
+        ];
+
+        const movieList = document.getElementById("movie-list");
+
+        const movieItems = movies.map(movie => {
+            const listItem = document.createElement("li");
+
+            const movieInfo = document.createElement("div");
+
+            movieInfo.innerHTML = `<strong>${movie.name}</strong> (${movie.year}) - Directed by ${movie.director}`;
+            
+            const imgElement = document.createElement("img");
+            imgElement.src = movie.picture;
+            imgElement.alt = `${movie.name} poster`;
+            imgElement.style.width = "200px"; 
+            
+            listItem.appendChild(movieInfo);
+            listItem.appendChild(imgElement);
+            
+            return listItem;
+        });
+
+        movieItems.forEach(item => movieList.appendChild(item));
+    </script>
+</body>
+
+</html>
